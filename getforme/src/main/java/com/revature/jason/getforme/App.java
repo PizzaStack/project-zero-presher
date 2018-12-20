@@ -1,6 +1,5 @@
 package com.revature.jason.getforme;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.revature.jason.getforme.entity.Login;
@@ -12,8 +11,9 @@ import com.revature.jason.getforme.entity.User;
  */
 public class App 
 {
-    public static void main( String[] args ) throws FileNotFoundException
-    {
+	static Scanner sc = new Scanner(System.in);
+    public static void main( String[] args ){
+    	
         
     	System.out.println( 
         		"Welcome to The Gift Registry. Please Select an Option "
@@ -23,7 +23,7 @@ public class App
         		+ "\n5. Login as an Administrator"
         		+ "\n----------------------------------------------------" );
         
-        Scanner sc = new Scanner(System.in);
+        
         
         int selection = sc.nextInt();
         
@@ -43,22 +43,22 @@ public class App
         	
         }
         
-    
+        
     }
 	private static void adminLogin() {
 		// TODO Auto-generated method stub
 		System.out.println("Admin Login");
 	}
 
-	private static void userLogin() throws FileNotFoundException {
+	private static void userLogin() {
 		// TODO Auto-generated method stub
-		System.out.println("User Login");
-		new Login();
+		
+		new Login(sc).askForLogin(sc);
 	}
 
-	private static void createAccount() throws FileNotFoundException {
+	private static void createAccount() {
 		// TODO Auto-generated method stub
-		new User();
+		new User().userIsANewUser(sc);
 	}
     
 }

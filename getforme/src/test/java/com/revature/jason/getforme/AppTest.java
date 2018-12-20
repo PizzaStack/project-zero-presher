@@ -10,11 +10,11 @@ import org.junit.*;
 
 public class AppTest{
     
-	@Test
-	public void canUserLogin() throws FileNotFoundException {
-		User user = new User();
-		user.loginToAccount();
-	}
+//	@Test
+//	public void canUserLogin() throws FileNotFoundException {
+//		User user = new User();
+//		user.loginToAccount();
+//	}
 //	
 //	@Test
 //	public void canAdminLoginToViewUsersAccounts() {
