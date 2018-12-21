@@ -1,0 +1,30 @@
+Project Zero Requirements
+
+Part One
+Build with Java 8
+All interaction with user in scanner class
+Registry Users can sign up for an account
+Users can remove, update or add a gift to the registry
+Basic validation should be done, such as trying to remove a gift that does not appear in the table
+Registry administration should be able to view users information such as:
+Account Information
+Gifts in the registry
+Personal information
+Admin should be able to:
+Delete a users account
+Edit a users account such as:
+Add gifts
+Remove gifts
+Update users information
+Block access to an account
+All transaction should be logged to text files
+Tests done using Junit
+Use TDD
+Persit information in text files
+
+Part two
+Requirements
+Create an SQL script that will create a user in an SQL database and a table schema for storing your registry users and account information.
+Your database should include at least 1 stored procedure.
+Have your registry application connect to your SQL database using JDBC and store all information that way.'
+You should use the DAO design pattern for data connectivity.
