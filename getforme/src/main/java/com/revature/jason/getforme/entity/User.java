@@ -4,10 +4,12 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.revature.jason.getforme.connections.communictaionsWithDatabase;
 
 public class User{
-	
+	static final Logger logger = Logger.getLogger(User.class.getName());
 	//private String UserType;
     private String Name;
     private Integer ID = 1;
@@ -16,39 +18,13 @@ public class User{
     private String RegistryName;
     private String UserName;
     private String UserPwd;
-    //private Scanner sc;
     private Integer Account;
     private String gifts;
     
-   // Scanner sco = new Scanner((Readable) System.out);
+   
     
     
     public User(){}
-    	
-  
-//		System.out.println(
-//				"Are you a Current Member?"
-//				+ "\n---------------------------"
-//				+ "\nEnter 1 for New Member"
-//				+ "\nEnter 2 for Current Member."
-//				+ "\n---------------------------");
-//		sc = new Scanner(System.in);
-//		int userType = sc.nextInt();
-//		switch(userType) {
-//		case 1:
-//			isUserANewUser();
-//			break;
-//		case 2:
-//			isUserACurrentUser();
-//			break;
-//		default:
-//			System.out.println("That is not a valid value");
-//		}
-		
-		// TODO Auto-generated method stub
-		
-		
-	
 
 	public String getName() {
 		return Name;
@@ -156,7 +132,7 @@ public class User{
 	}	
 
 	public Integer randomAccountNumber() {
-		Scanner sc = new Scanner(System.in);
+		
 		 int max = 100;
 		 int min = 5;
 		 Random rn = new Random();
@@ -167,56 +143,69 @@ public class User{
 
 	public void userIsANewUser(Scanner sc) {
 		// TODO Auto-generated method stub
-		System.out.println("-------------------------------------------"
-				+ "\nPlease Enter Your Account Information"
-				+ "\n-------------------------------------------");
-		do {
+		logger.info("New User Creation Started");
+		System.out.println(
+				  "-----------------------------------------------"
+				+ "\n\tPlease Enter Your Account Information"
+				+ "\n-----------------------------------------------");
+		
 		System.out.println("What is your first name?");
-			while(!sc.hasNext()){
-				System.out.println("You have not input your name");
-				sc.next();
-			}
-			//Name = sc.next();
-		}while(sc.hasNext());
+		Name = sc.next();
+		if(this.Name.isEmpty() ) {
+			System.out.println("You have not input a first name");
+			logger.error("First Name Not Input Error");
 			Name = sc.next();
+		}
 		
 		System.out.println("What is your city?");	
-			if(sc.next() == null) 
-				System.out.println("You have not input a City please try again");
-			else
-				Address = sc.next();			
+		Address = sc.next();
+		if(this.Address.isEmpty() ) {
+			System.out.println("You have not input a City. Try Again");
+			logger.error("Address Not Input Error");
+			Address = sc.next();
+		}			
 			
 		System.out.println("What is your phone number?");
-			if(sc.next() == null) 
-				System.out.println("You have not input a Phone Number please try again");
-			else
-				Phone = sc.next();
+		Phone = sc.next();
+		if(this.Phone.isEmpty() ) {
+			System.out.println("You have not input a Phone. Try Again");
+			logger.error("Phone Number Not Input Error");
+			Phone = sc.next();
+		}
 		
 		System.out.println("Give your registry a two word name");
-			if(sc.next() == null) 
-				System.out.println("You have not given your Registry a two word name try again");
-			else
-				RegistryName = sc.next() + sc.nextLine();
+		RegistryName = sc.next() + sc.nextLine();
+		if(this.RegistryName.isEmpty() ) {
+			System.out.println("You have not input a Registry name. Try Again");
+			logger.error("Registry Name Not Input Error");
+			RegistryName = sc.next() + sc.nextLine();
+		}
 				
 		System.out.println("What gift would you like to add to the registry");
-			if(sc.next() == null) 
-				System.out.println("You have not add a Gift please try again");
-			else
-				gifts = sc.next();
+		gifts = sc.next();
+		if(this.gifts.isEmpty() ) {
+			System.out.println("You have not input a gift. Try Again");
+			logger.error("Gift Not Input Error");
+			gifts = sc.next();
+		}
 			
 		System.out.println("Choose your username");
-			if(sc.next() == null) 
-				System.out.println("You have not input a User Name please try again");
-			else
-				UserName = sc.next();
+		UserName = sc.next();
+		if(this.UserName.isEmpty() ) {
+			System.out.println("You have not input a user name. Try Again");
+			logger.error("User Name Not Input Error");
+			UserName = sc.next();
+		}
 				
 		System.out.println("Choose a password");
-			if(sc.next() == null) 
-				System.out.println("You have not input a Password please try again");
-			else
-		 		UserPwd = sc.next();		
-		 
+		UserPwd = sc.next();
+		if(this.UserPwd.isEmpty() ) {
+			System.out.println("You have not input a password.Try Again");
+			logger.error("Password Not Input Error");
+			UserPwd = sc.next();
+		}
 		randomAccountNumber();	 
+		logger.info("New User Created");
 		 loginInToRegistry();
 	}
 	
@@ -230,6 +219,7 @@ public class User{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 	

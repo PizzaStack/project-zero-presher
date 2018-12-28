@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
+import com.revature.jason.getforme.App;
 import com.revature.jason.getforme.connections.communictaionsWithDatabase;
 
 public class Login {
+	static final Logger logger = Logger.getLogger(Login.class.getName());
 	
 	private String inpUser;
     private String inpPass;
@@ -34,13 +38,17 @@ public class Login {
 	
 		public void askForLogin(Scanner sc) {
 		//Scanner keyboard = new Scanner(System.in);
-		System.out.println("+++++++++++++++++++++++++++++++++++"
-	    		+ "\nWelcome to The Registry Please Login"
-	    		+ "\n-----------------------------------");
-	    System.out.println("What is your Username?");
+		System.out.println(
+				  "++++++++++++++++++++++++++++++++++++++++++++"
+	    		+ "\n\tWelcome to The Registry Please Login"
+	    		+ "\n-------------------------------------------");
+		
+	    System.out.println("\tWhat is your Username?");
+	    logger.info("User Name Login Attempt");
 	    inpUser = sc.next();
-	    System.out.println("What is you password?");
-	    inpPass = sc.next(); // gets input from user
+	    System.out.println("\tWhat is you password?");
+	    logger.info("Password Login Attempt");
+	    inpPass = sc.next(); // gets input from user  
 	    
 	     loginInToRegistry();
 	}
@@ -55,6 +63,7 @@ public class Login {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 }
