@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Cliff Co Managers Terminal</title>
+<style>
+th, td {
+	font: 30px Verdana;
+}
+
+table {
+	margin-left: 250px;
+}
+
+table, th, td {
+	border: solid 1px #DDD;
+	border-collapse: collapse;
+	padding: 2px 3px;
+	text-align: center;
+}
+
+th {
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="item1" id="header-header">
+			<header>
+
+				<div class="grid-container-header" id="header-nav">
+					<div class="item2-header" id="header-logins">
+						<nav class="nav">
+							<ul>
+								<li id="brand">CLIFF CO</li>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">About</a></li>
+								<li style="float: right">
+
+									<button type="button" class="button-login" value="Logout"
+										onclick="getLogoutPage();">
+										<i class="far fa-address-card"></i>Logout
+									</button>
+
+								</li>
+							</ul>
+						</nav>
+
+						<!-- <div class="item2-header" id="header-logins">
+               <div >
+                    <button type="button" class="button-login">Employees Area</button>
+                    <button type="button" class="button-login">Managers Area</button>
+                </div>
+            </div> -->
+					</div>
+				</div>
+				<h1 class="header-h1">
+					Welcome CLIFF CO Manager <i id="user"></i>
+				</h1>
+			</header>
+		</div>
+
+		<div class="item2" id="menu">
+			<p>Lorem ipsum dolor sit amet, meis ubique antiopam in est, ei
+				autem nulla appellantur est. Mei dicant ignota appareat no. Ea eum
+				malorum dolorum temporibus, munere imperdiet elaboraret eu nec. Vero
+				reprimique philosophia eum ne. Vim omnium laboramus deterruisset an,
+				affert insolens maiestatis nec an, mea oportere senserit ea. Eu
+				oratio dissentias sea. Bonorum signiferumque sit ad, vel no dicta
+				feugait dolores. His exerci accusamus necessitatibus et. Ne nec
+				indoctum evertitur interesset, sit ut liber sonet nominati. Per
+				indoctum expetendis eloquentiam eu, mei at epicuri laboramus
+				assentior. Vim ei labitur inciderint voluptatibus, lucilius
+				scripserit vituperatoribus vix no. Et mei melius placerat
+				theophrastus. Sit id tractatos interesset, eu has ocurreret
+				assentior tincidunt. Has et nemore meliore, mei diam choro dolorem
+				te. Vim porro phaedrum ad, et ius habemus vivendo, eu dicit
+				intellegat omittantur pri. Ius probo prodesset ea. Vis ipsum dolore
+				voluptua eu, duo ne viris minimum eloquentiam. Eam stet movet in,
+				fabellas inciderint cum et. Ut est dicat vidisse. Has eu laoreet
+				praesent percipitur. Has eu tempor albucius quaerendum, autem
+				admodum argumentum vel ea. Vel cu mutat deleniti intellegat.</p>
+		</div>
+		<div class="item3" id="main">
+			<!-- ; 
+	
+	-->
+			<h2>Below are your employees</h2>
+			<h3 id="ajaxText"></h3>
+			<div name="anything">
+				<select id="employeesNames" name="employee" id="employee"
+					onchange="GetEmployeeByName()">
+					<option disabled selected>Select Employee</option>
+				</select>
+
+			</div>
+			<div>
+				<div class="loginContainer">
+				
+					<label for="status"><b>Employees by Status</b></label>
+					<div>
+				<table style="background-color:white" id="employeeTable">
+					<tr>
+						<th style="background-color:#f7b733">First Name</th>
+						<th style="background-color:#f7b733">Last Name</th>
+						<th style="background-color:#f7b733">Email</th>
+						<th style="background-color:#f7b733">Status</th>
+					</tr>
+
+				</table>
+				</div>
+					<input type="text" name="status" value="Deny" id="status"
+						placeholder="Pending, Approved, Denied"> <input
+						type="submit" class="button" name="submit" value="Get Employees"
+						onclick="getEmployeeByStatus()">
+				</div>
+				<div style="display: block">
+					<i id="namef"></i>
+					<!--<i id="Namef"></i>
+				<i id="namel"></i>
+				<i id="email"></i>
+				<i id="status"></i>-->
+				</div>
+
+
+				<!-- <label for="status">Select Reimbursement Status</label>
+				<select name="status" onchange="getEmployeeByStatus(this.value);" id="status" >				
+				<option disabled selected>Select Employee Status</option>
+					<option value="PENDING" id="status">Pending</option>
+					<option value="APPROVED">Approved</option>
+					<option value="DENIED">Denied</option>
+				</select> -->
+				<!-- <input type="submit" value="Submit" class="button" value="Submit">-->
+
+				<!--
+			<button type="button" class="button-login" onclick="getEmployees()">Get
+				Employees</button>
+			-->
+				<h3 id="ajaxText"></h3>
+
+				<h2>Approve Or Deny a Reimbursement</h2>
+				<form action="ReimbursementStatusUpdateServlet" method="post">
+					<div class="loginContainer">
+						<label for="name"><b>Employee First Name</b></label> <input
+							type="text" name="employeeFirstName"
+							placeholder="Employee First Name" required> <label
+							for="status"><b>Reimbursement Status</b></label> Approve<input
+							type="radio" name="status" value="approve" id="approve">
+						Deny<input type="radio" name="status" value="deny" id="deny">
+
+						<input type="submit" class="button" name="submit"
+							value="Submit Request">
+					</div>
+				</form>
+
+			</div>
+			<div class="item4" id="right">
+				<p>Lorem ipsum dolor sit amet, meis ubique antiopam in est, ei
+					autem nulla appellantur est. Mei dicant ignota appareat no. Ea eum
+					malorum dolorum temporibus, munere imperdiet elaboraret eu nec.
+					Vero reprimique philosophia eum ne. Vim omnium laboramus
+					deterruisset an, affert insolens maiestatis nec an, mea oportere
+					senserit ea. Eu oratio dissentias sea. Bonorum signiferumque sit
+					ad, vel no dicta feugait dolores. His exerci accusamus
+					necessitatibus et. Ne nec indoctum evertitur interesset, sit ut
+					liber sonet nominati. Per indoctum expetendis eloquentiam eu, mei
+					at epicuri laboramus assentior. Vim ei labitur inciderint
+					voluptatibus, lucilius scripserit vituperatoribus vix no. Et mei
+					melius placerat theophrastus. Sit id tractatos interesset, eu has
+					ocurreret assentior tincidunt. Has et nemore meliore, mei diam
+					choro dolorem te. Vim porro phaedrum ad, et ius habemus vivendo, eu
+					dicit intellegat omittantur pri. Ius probo prodesset ea. Vis ipsum
+					dolore voluptua eu, duo ne viris minimum eloquentiam. Eam stet
+					movet in, fabellas inciderint cum et. Ut est dicat vidisse. Has eu
+					laoreet praesent percipitur. Has eu tempor albucius quaerendum,
+					autem admodum argumentum vel ea. Vel cu mutat deleniti intellegat.</p>
+
+			</div>
+			<div class="item5" id="footer">
+				<footer>CLIFF CO COPYRIGHT &copy; 2019</footer>
+			</div>
+		</div>
+		<script src="js/logoutAjax.js"></script>
+		<script src="js/getManagerNameAjax.js"></script>
+		<script src="js/getEmployeesAjax.js"></script>
+		<script src="js/GetEmployeeByStatusAjax.js"></script>
+</body>
+</html>

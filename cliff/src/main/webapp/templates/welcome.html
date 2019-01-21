@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Cliff Co Expense Reimbursement Terminal</title>
+<style>
+th, td {
+	font: 30px Verdana;
+}
+
+table {
+	margin-left: 250px;
+}
+
+table, th, td {
+	border: solid 1px #DDD;
+	border-collapse: collapse;
+	padding: 2px 3px;
+	text-align: center;
+}
+
+th {
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="item1" id="header-header">
+			<header>
+
+				<div class="grid-container-header" id="header-nav">
+					<div class="item2-header" id="header-logins">
+						<nav class="nav">
+							<ul>
+								<li id="brand">CLIFF CO</li>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">About</a></li>
+								<li style="float: right">
+								
+								<button type="button"
+										class="button-login" id='employee-button'
+										onclick="getLogoutPage()">
+										<i class="far fa-address-card"></i>Logout
+									</button></li>
+							</ul>
+						</nav>
+
+						<!-- <div class="item2-header" id="header-logins">
+               <div >
+                    <button type="button" class="button-login">Employees Area</button>
+                    <button type="button" class="button-login">Managers Area</button>
+                </div>
+            </div> -->
+					</div>
+				</div>
+				<h1 class="header-h1">
+					Welcome CLIFF CO Employee <i id="user"></i>
+				</h1>
+			</header>
+		</div>
+
+		<div class="item2" id="menu">
+			<p>Lorem ipsum dolor sit amet, meis ubique antiopam in est, ei
+				autem nulla appellantur est. Mei dicant ignota appareat no. Ea eum
+				malorum dolorum temporibus, munere imperdiet elaboraret eu nec. Vero
+				reprimique philosophia eum ne. Vim omnium laboramus deterruisset an,
+				affert insolens maiestatis nec an, mea oportere senserit ea. Eu
+				oratio dissentias sea. Bonorum signiferumque sit ad, vel no dicta
+				feugait dolores. His exerci accusamus necessitatibus et. Ne nec
+				indoctum evertitur interesset, sit ut liber sonet nominati. Per
+				indoctum expetendis eloquentiam eu, mei at epicuri laboramus
+				assentior. Vim ei labitur inciderint voluptatibus, lucilius
+				scripserit vituperatoribus vix no. Et mei melius placerat
+				theophrastus. Sit id tractatos interesset, eu has ocurreret
+				assentior tincidunt. Has et nemore meliore, mei diam choro dolorem
+				te. Vim porro phaedrum ad, et ius habemus vivendo, eu dicit
+				intellegat omittantur pri. Ius probo prodesset ea. Vis ipsum dolore
+				voluptua eu, duo ne viris minimum eloquentiam. Eam stet movet in,
+				fabellas inciderint cum et. Ut est dicat vidisse. Has eu laoreet
+				praesent percipitur. Has eu tempor albucius quaerendum, autem
+				admodum argumentum vel ea. Vel cu mutat deleniti intellegat.</p>
+		</div>
+		<div class="item3" id="main">
+
+			<h2>Below are your account details</h2>
+			<h3 id="ajaxText"></h3>
+			<h3>
+				First Name: <i id="firstName"></i>
+			</h3>
+			<h3><i id="Fname"></i></h3>
+			<h3>
+				Last Name: <i id="lastName"></i>
+			</h3>
+			<h3><i id="Lname"></i></h3>
+			<h3>
+				email: <i id="email"></i>
+			</h3>
+			<h3><i id="Email"></i></h3>
+			<h3>
+				Reimbursement Status: <i id="status"></i>
+			</h3>
+			<h3><i id="RI"></i></h3>
+			<button type="button" id="button" onclick="seeInfo()">See Your Info</button>
+			<h2> To Update your info check on below</h2>
+			<div>
+			<input type="checkbox" name="first" value="First Name" class="first">First Name
+			<input type="checkbox" name="last" value="Last Name" class="last">Last Name
+			<input type="checkbox" name="Email" value="Email" class="email">Email
+			</div>
+			<div class="loginContainer">
+			  <div id="fnameForm" name="nameForm">
+			<label for="fname">First Name</label>
+				<input type="text" name="fname" placehoder="Your First Name" id="fname">
+				<input type="button" name="submit" value="Update First Name" class="button" onclick="UpdateNameF()">
+				  </div>
+				<script>
+				$(document).ready(function(){
+					  $(".first").click(function(){
+					    $("#fnameForm").toggle();
+					  });
+					});
+				</script>
+				
+				<div id="lnameForm">
+				<label for="lname">Last Name</label>
+				<input type="text" name="lname" placeholder="Your Last Name">
+				<input type="button" name="submit" value="Update Last Name" class="button" onclick="">
+				 </div>
+				<script>
+				$(document).ready(function(){
+					  $(".last").click(function(){
+					    $("#lnameForm").toggle();
+					  });
+					});
+				</script>
+				<div id="emailForm">
+				<label for="email">Email</label>
+				<input type="email" name="email" placeholder="Your Email">	
+				<input type="button" name="submit" value="Update Email" class="button">	
+			</div>
+			<script>
+				$(document).ready(function(){
+					  $(".email").click(function(){
+					    $("#emailForm").toggle();
+					  });
+					});
+				</script>
+			</div>
+			<h2>Submit A New Reimbursement Request Below</h2>
+			
+			
+				<div class="loginContainer">
+				<label for="request">What type of request. Ex. Car, Gas, Food, etc.</label>
+				<input type="text" id="request" name="request" placeholder="Type of request">
+				<input type="button" name="submit" id="submit" value="Submit Type" onclick="addReimbursement()">
+				<form action="FileUploadsServlet" method="post" enctype="multipart/form-data">
+					<input type="file" placeholder="Upload receipt" name="rfile">
+					<input type="submit" class="button" name="submit" value="Submit Request">
+				</div>
+			</form>
+
+		</div>
+		<div class="item4" id="right">
+			<p>Lorem ipsum dolor sit amet, meis ubique antiopam in est, ei
+				autem nulla appellantur est. Mei dicant ignota appareat no. Ea eum
+				malorum dolorum temporibus, munere imperdiet elaboraret eu nec. Vero
+				reprimique philosophia eum ne. Vim omnium laboramus deterruisset an,
+				affert insolens maiestatis nec an, mea oportere senserit ea. Eu
+				oratio dissentias sea. Bonorum signiferumque sit ad, vel no dicta
+				feugait dolores. His exerci accusamus necessitatibus et. Ne nec
+				indoctum evertitur interesset, sit ut liber sonet nominati. Per
+				indoctum expetendis eloquentiam eu, mei at epicuri laboramus
+				assentior. Vim ei labitur inciderint voluptatibus, lucilius
+				scripserit vituperatoribus vix no. Et mei melius placerat
+				theophrastus. Sit id tractatos interesset, eu has ocurreret
+				assentior tincidunt. Has et nemore meliore, mei diam choro dolorem
+				te. Vim porro phaedrum ad, et ius habemus vivendo, eu dicit
+				intellegat omittantur pri. Ius probo prodesset ea. Vis ipsum dolore
+				voluptua eu, duo ne viris minimum eloquentiam. Eam stet movet in,
+				fabellas inciderint cum et. Ut est dicat vidisse. Has eu laoreet
+				praesent percipitur. Has eu tempor albucius quaerendum, autem
+				admodum argumentum vel ea. Vel cu mutat deleniti intellegat.</p>
+
+		</div>
+		<div class="item5" id="footer">
+			<footer>CLIFF CO COPYRIGHT &copy; 2019</footer>
+		</div>
+	</div>
+	<script src="js/js.js"></script>
+	<script src="js/logoutAjax.js"></script>
+	<script src="js/welcomeAjax.js"></script>
+	<script src="js/updateFname.js"></script>
+	<script src="js/addReimbursement.js"></script>
+	<script src="js/EmployeeNameOnLoad.js"></script>
+	
+
+</body>
+</html>

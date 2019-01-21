@@ -1,0 +1,287 @@
+body{
+    background-color: #4abdac;/*fresh*/
+    padding:0;
+    margin:0;
+}
+.item1 {
+    grid-area: header;
+  /* grid-column-start: 1;
+  grid-column-end: 5; */
+  
+}  
+.item2{
+    grid-area: menu;
+}
+.item3{
+    grid-area: main;
+}
+.item4{
+    grid-area: right;
+}
+.item5{
+    grid-area: footer;
+    /* grid-column-start: 1;
+    grid-column-end: 5; */
+}
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header'
+    'menu main main main main right'
+    'menu footer footer footer footer footer';
+   /* grid-column-gap: 50px;*/
+    /* grid-template-columns: auto auto auto auto;
+    grid-template-rows: 80px 200px; */
+    grid-row-gap: 1px;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid green;
+    text-align: center;
+    /* padding: 20px 0; */
+    margin-bottom: 10px;
+   /* justify-content: space-around;*/
+  }
+  
+  
+  #header{
+    
+    
+}
+/* header{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: red 1px solid;
+} */
+  #header-header{
+    
+    border-radius:9px;
+  }
+  .grid-container-header {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 5px 90px;
+    /* border: 1px solid green; */
+    padding-top: 0;
+    margin-top: 0;
+  }
+  
+  /* .grid-container-header > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid red;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    margin-top: 0;
+    padding-top: 0;
+  } */
+  .item1-header {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 50px;
+  }  
+  .item2-header {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    height: 50px;
+  }  
+  /* #header-nav{
+      background-color: ;
+      height: 300px;
+  } */
+  .header-h1{
+      margin-top: 0;
+      padding: 0;
+      font-size: 5ch;
+      text-shadow: 2px 2px 8px #fc4a1a;/*vermillion*/
+  }
+  .nav{
+      background-color: #f7b733;/*sunshine*/
+      height: 46px;
+      border-top-left-radius: 9px;
+      border-top-right-radius: 9px;
+  }
+  .nav a{
+      text-decoration: none;
+      font:10px;
+      text-transform: uppercase;
+  }
+  .nav ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
+  .nav li{/*    
+    padding: 0% 25px 25px 25px;*/
+    float: left;
+}
+.nav li a{
+    display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.nav li a:hover{
+    background-color: #fc4a1a;
+    overflow: hidden;
+}
+#brand{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    color: #dfdce3;
+}
+  #header-logins{
+      margin: 0;
+      padding: 0;
+      /*  */
+      height: auto;
+  }
+  .button-login {
+    background-color: #f7b733; /* clean */
+    border: none;
+    color:  #fc4a1a;
+    margin: 60px 5px 5px 5px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    border-radius: 5px;
+    float: right;
+    opacity: 0.6;
+  }
+  @media only screen and (max-width: 700px) {
+    .button-login{
+        font-size: 12px;
+        margin:5px 6px;
+        float: left;
+    }
+    .header-h1{
+        display: none;
+    }
+
+    #header-header{
+        padding-bottom: 20px;
+    }
+} 
+  /* .button-login:hover{
+    background-color: white;
+    opacity: 1;
+  } */
+  .button-login i{
+      padding: 5px;
+  }
+  .container{
+      width: 100%;
+  }
+  #menu{
+      height: auto;
+      margin-top: 0;
+  }
+  #main{
+      height: auto;
+      width:;
+  }
+  #right{
+      height: auto;
+  }
+  
+ /* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+  }
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  #employeeTable{
+  width: 100%;
+  margin: 8px 0;
+  }
+  
+  /* Set a style for all buttons */
+   .button {
+    background-color: #f7b733; /* clean */
+    border: none;
+    color:  #fc4a1a;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+  } 
+  
+  /* Add a hover effect for buttons */
+  .button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    border: none;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .loginContainer {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  #fnameForm{
+  display:none;
+  }
+  #lnameForm{
+  display:none;
+  }
+  #emailForm{
+  display:none;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
